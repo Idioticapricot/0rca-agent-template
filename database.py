@@ -49,7 +49,7 @@ def get_db():
     finally:
         conn.close()
 
-def create_job(job_input, sender_address="unknown"):
+def create_job(job_input, sender_address):
     """Create new job and return job_id and hash"""
     job_input_hash = hashlib.sha256(job_input.encode()).hexdigest()
     job_id = f"J{int(time.time())}"

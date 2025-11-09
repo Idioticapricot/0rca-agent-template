@@ -60,6 +60,8 @@ atc.add_method_call(
 )
 
 
+
+atc = populate_app_call_resources(atc, client)
 group = atc.build_group()
 
 
@@ -68,8 +70,6 @@ for tws in group:
     txn = tws.txn  # Get the Transaction object
     unsigned_bytes = msgpack_encode(txn)
     print(unsigned_bytes)  # This is the msgpack-encoded unsigned transaction
-atc = populate_app_call_resources(atc, client)
-
 # Execute
 result = atc.execute(client, 4)
 print("✅ Success in round:", result.confirmed_round)
